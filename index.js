@@ -22,8 +22,23 @@ async function fetchPlayers() {
 }
 const server = http.createServer(async (req, res) => {
     
-    /*
-
+   const allowedOrigins = ['https://example.com', 'https://test.com'];
+  const requestOrigin = req.headers.origin;
+  
+  if (allowedOrigins.includes(requestOrigin)) {
+    res.setHeader('Access-Control-Allow-Origin', requestOrigin);
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Set to '*' to allow any origin
+  }
+  
+  res.setHeader('Vary', 'Origin');
+  
+  // Other logic handling your requests
+  // ...
+  
+  // Send a response (example)
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello, CORS!');
         
 
         we can Navigate to different pages via different requests. 
