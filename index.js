@@ -56,8 +56,8 @@ const server = http.createServer(async (req, res) => {
         try {
             const players = await fetchPlayers();
 
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify(players));
+            res.writeHead(200, { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*' });
+            res.end(content);
         } catch (error) {
             console.error(error);
             res.writeHead(500, { 'Content-Type': 'text/html' });
