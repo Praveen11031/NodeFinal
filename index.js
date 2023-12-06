@@ -23,7 +23,7 @@ async function fetchPlayers() {
 const server = http.createServer(async (req, res) => {
     
  
-  res.setHeader('Access-Control-Allow-Origin': '*'); // Set to '*' to allow any origin
+  
       
   if (req.url === '/') {
         // read public.html file from public folder
@@ -56,7 +56,7 @@ const server = http.createServer(async (req, res) => {
         try {
             const players = await fetchPlayers();
 
-            res.writeHead(200, { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*' });
+            res.writeHead(200, { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'});
             res.end(content);
         } catch (error) {
             console.error(error);
