@@ -22,18 +22,9 @@ async function fetchPlayers() {
 }
 const server = http.createServer(async (req, res) => {
     
-  const allowedOrigins = ['https://nodefinal-cth2.onrender.com/api'];
-  const requestOrigin = req.headers.origin;
-  
-  if (allowedOrigins.includes(requestOrigin)) {
-    res.setHeader('Access-Control-Allow-Origin', requestOrigin);
-  } else {
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Set to '*' to allow any origin
-  }
-  res.setHeader('Vary', 'Origin');
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello, CORS!');    
-    
+ 
+  res.setHeader('Access-Control-Allow-Origin': '*'); // Set to '*' to allow any origin
+      
   if (req.url === '/') {
         // read public.html file from public folder
         fs.readFile(path.join(__dirname, 'index.html'),
