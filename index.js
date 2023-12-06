@@ -22,7 +22,7 @@ async function fetchPlayers() {
 }
 const server = http.createServer(async (req, res) => {
     
-  const allowedOrigins = ['https://example.com', 'https://test.com'];
+  const allowedOrigins = ['https://nodefinal-cth2.onrender.com/api'];
   const requestOrigin = req.headers.origin;
   
   if (allowedOrigins.includes(requestOrigin)) {
@@ -32,21 +32,9 @@ const server = http.createServer(async (req, res) => {
   }
   res.setHeader('Vary', 'Origin');
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello, CORS!');
-        
-
-        we can Navigate to different pages via different requests. 
-        if / then goto index.html
-        if /about about then goto about.html
-        if /api then laod the JSON file  /  ;) this might be something you need for your exam. 
-
-
-
-    */
-   
+  res.end('Hello, CORS!');    
     
-    
-    if (req.url === '/') {
+  if (req.url === '/') {
         // read public.html file from public folder
         fs.readFile(path.join(__dirname, 'index.html'),
                     (err, content) => {
