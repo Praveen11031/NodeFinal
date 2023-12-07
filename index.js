@@ -42,7 +42,7 @@ const server = http.createServer(async (req, res) => {
 
         // read the about.html file public folder
         fs.readFile(
-            path.join(__dirname,  'about.html'),
+            path.join(__dirname,  'Portfolio.html'),
                     (err, content) => {
                                     
                                     if (err) throw err;
